@@ -31,6 +31,8 @@ The input strings consist of lowercase English characters only.
 
 
 /**
+ * Time complexity: O(nm)
+ * Space complexity: O(nm)
  * @param {String} s1
  * @param {String} s2
  * @returns {Number} length of longest common subsequence
