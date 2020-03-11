@@ -39,47 +39,22 @@ for (int i = 0; i < len; i++) {
 */
 
 /**
+ * Time: O(n)
+ * Space: O(1)
  * @param {Number[]} nums
- * @returns {Number} reps count
+ * @returns {Number} duplicates
  */
 function removeDuplicates(nums) {
-  if (nums.length < 2) return nums.length;
+    if (nums.length < 2) return nums.length;
 
-  let newLen = 0;
-  let prev = null;
-  let i = 0,
-    j = 1;
-  let len = nums.length;
-  while (i < len) {
-    if (nums[i] !== prev) {
-      if (nums[i] !== null) {
-        prev = nums[i++];
-        j++;
-        newLen++;
-        continue;
-      } else if (j < len) {
-        if (nums[j] !== null) {
-          nums[i] = nums[j];
-          nums[j] = null;
-        } else {
-          j++;
-          continue;
+    let i = 0;
+    for (let j=1, len=nums.length; j < len; j++) {
+        if (nums[i] !== nums[j]) {
+            nums[i+1] = nums[j];
+            i++;
         }
-      } else {
-        break;
-      }
-    } else if (j < len) {
-      if (nums[j] !== null) {
-        nums[i] = nums[j];
-        nums[j] = null;
-      } else {
-        j++;
-      }
-    } else {
-      i++;
     }
-  }
-  return newLen;
+    return i + 1;
 }
 
 let nums = [0, 0, 1, 1, 2];
@@ -90,3 +65,7 @@ assert.equal(removeDuplicates(nums), 2);
 
 nums = [0,0,1,1,1,2,2,3,3,4];
 assert.equal(removeDuplicates(nums), 5);
+
+nums = [0];
+assert.equal(removeDuplicates(nums), 1);
+
