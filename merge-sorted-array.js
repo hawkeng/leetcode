@@ -19,6 +19,8 @@ Output: [1,2,2,3,5,6]
 */
 
 /**
+ * Time: O(n+m)
+ * Space: O(1)
  * @param {Number[]} nums1
  * @param {Number} m - length of sorted numbers in nums1
  * @param {Number[]} nums2
